@@ -21,7 +21,6 @@ public class InMemoryLanguageRepository implements ProgramingLanguagesRepository
 		programingLanguages.add(new ProgramingLanguages(5,"Go"));
 		
 		
-		
 	}
 
 	@Override
@@ -33,13 +32,20 @@ public class InMemoryLanguageRepository implements ProgramingLanguagesRepository
 	@Override
 	public ProgramingLanguages getById(int id) {
 		// TODO Auto-generated method stub
-		s
+		for (ProgramingLanguages programingLanguage : programingLanguages) {
+			if(programingLanguage.getId() == id) {
+				return programingLanguage;
+			}
+			
+		}
+		
 		return null;
 	}
 
 	@Override
-	public void add(ProgramingLanguages programingLanguages) {
+	public void add(ProgramingLanguages programingLanguage) {
 		
+		programingLanguages.add(programingLanguage);
 		
 	}
 
@@ -47,15 +53,19 @@ public class InMemoryLanguageRepository implements ProgramingLanguagesRepository
 	public void delete(int id) {
 		// TODO Auto-generated method stub
 		
+		ProgramingLanguages deleteProgramingLanguages = getById(id);
+		programingLanguages.remove(id);
+		System.out.println(deleteProgramingLanguages + " programing language is deleted.");
+		
 	}
 
 	@Override
-	public void update(ProgramingLanguages programingLanguages) {
+	public void update(ProgramingLanguages programingLanguage) {
 		// TODO Auto-generated method stub
+		ProgramingLanguages updateProgramingLanguages = getById(programingLanguage.getId());
+		updateProgramingLanguages.setProgramingName(programingLanguage.getProgramingName());
+		System.out.println(programingLanguage + " is updated to "+ updateProgramingLanguages);
 		
 	}
-	
-	
-	
 
 }

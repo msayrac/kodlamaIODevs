@@ -14,13 +14,13 @@ public interface ProgramingLanguagesRepository {
 	ProgramingLanguages getById(int id);
 	
 	// add language
-	void add(ProgramingLanguages programingLanguages);
+	void add(ProgramingLanguages programingLanguage);
 	
 	// delete language
 	void delete(int id);
 	
 	// update language
-	void update(ProgramingLanguages programingLanguages);
+	void update(ProgramingLanguages programingLanguage);
 	
 	
 	
